@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLIXHOUSE - WhatsApp Business Automation Solutions</title>
+    <title>CLIXHOUSE - Digital Atelier</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #1a1a1a;
             line-height: 1.6;
         }
         .container {
@@ -19,79 +19,124 @@
         }
         header {
             text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
         }
         h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -2px;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         .tagline {
-            font-size: 1.5rem;
-            color: #9ca3af;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        nav {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin: 0 2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #000;
         }
         section {
-            margin: 4rem 0;
-            padding: 3rem;
-            background: #1a1a1a;
-            border-radius: 10px;
+            margin: 6rem 0;
         }
         h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #60a5fa;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
         }
-        .services {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .service-card {
-            background: #262626;
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-        .service-card h3 {
-            color: #a78bfa;
-            margin-bottom: 1rem;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
-            align-items: center;
+            margin: 3rem 0;
         }
-        .contact-info {
-            background: #262626;
+        .service {
+            padding: 3rem;
+            background: #f8f8f8;
+            transition: transform 0.3s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        .service p {
+            color: #666;
+            line-height: 1.8;
+        }
+        .philosophy {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #444;
+        }
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .process-step {
+            text-align: center;
             padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
         }
-        .contact-info p {
-            margin: 0.5rem 0;
+        .process-step .number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            font-weight: 300;
         }
-        a {
-            color: #60a5fa;
-            text-decoration: none;
+        .contact {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 0;
+            margin-top: 6rem;
         }
-        a:hover {
-            text-decoration: underline;
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact h2 {
+            color: white;
+        }
+        .contact a {
+            color: white;
         }
         footer {
             text-align: center;
             padding: 3rem 0;
-            color: #6b7280;
-            border-top: 1px solid #333;
+            background: #f8f8f8;
+            color: #666;
+            font-size: 0.9rem;
         }
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .about-content { grid-template-columns: 1fr; }
+            h1 { font-size: 3rem; }
+            nav a { margin: 0 1rem; }
         }
     </style>
 </head>
@@ -99,89 +144,96 @@
     <header>
         <div class="container">
             <h1>CLIXHOUSE</h1>
-            <p class="tagline">WhatsApp Business Automation Solutions</p>
-            <p>Empowering businesses with intelligent conversational AI and automation tools</p>
+            <p class="tagline">Digital Atelier</p>
         </div>
     </header>
 
+    <nav>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <div class="container">
-        <section id="about">
-            <h2>About CLIXHOUSE</h2>
-            <div class="about-content">
-                <div>
-                    <p>CLIXHOUSE LLC is a technology company specializing in WhatsApp Business API integration and conversational AI solutions. We help businesses automate customer interactions, streamline operations, and enhance customer engagement through intelligent chatbots.</p>
-                    <p>Founded in 2025, we focus on creating custom WhatsApp automation solutions that save time, reduce costs, and improve customer satisfaction for businesses of all sizes.</p>
-                </div>
-                <div>
-                    <h3>Our Mission</h3>
-                    <p>To democratize business automation by making WhatsApp Business API accessible and affordable for companies worldwide, enabling them to provide 24/7 customer service and operational efficiency.</p>
-                </div>
+        <section id="philosophy">
+            <h2>Digital Craftsmanship</h2>
+            <div class="philosophy">
+                <p>CLIXHOUSE is a digital atelier where technology meets artistry. We craft bespoke digital solutions that elevate businesses in the modern landscape. From brand identity to intelligent automation, we approach each project as a unique canvas, blending creativity with cutting-edge technology.</p>
             </div>
         </section>
 
         <section id="services">
             <h2>Our Services</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>WhatsApp Bot Development</h3>
-                    <p>Custom chatbot solutions for customer service, sales automation, and operational workflows. Built on WhatsApp Cloud API for reliability and scale.</p>
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Brand Identity & Design</h3>
+                    <p>Complete visual identity systems including logos, typography, color palettes, and brand guidelines. We create cohesive visual languages that resonate with your audience.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Inventory Management Bots</h3>
-                    <p>Specialized bots for real-time inventory tracking, low-stock alerts, and automated reordering through WhatsApp conversations.</p>
+                <div class="service">
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies. From minimalist portfolios to complex e-commerce platforms, we code with precision and purpose.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Customer Support Automation</h3>
-                    <p>AI-powered support bots that handle FAQs, ticket creation, and intelligent routing to human agents when needed.</p>
+                <div class="service">
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive digital transformation consulting. We analyze, strategize, and implement solutions that align technology with business objectives.</p>
                 </div>
-                <div class="service-card">
-                    <h3>API Integration Services</h3>
-                    <p>Connect your existing systems (CRM, ERP, databases) with WhatsApp for seamless business communication.</p>
+                <div class="service">
+                    <h3>Automation & AI</h3>
+                    <p>Intelligent business automation including chatbots, workflow optimization, and AI-powered tools. We make businesses more efficient through smart technology.</p>
+                </div>
+                <div class="service">
+                    <h3>Content Creation</h3>
+                    <p>Strategic content development from copywriting to video production. We tell your story across all digital channels with authenticity and impact.</p>
+                </div>
+                <div class="service">
+                    <h3>Digital Marketing</h3>
+                    <p>Data-driven marketing campaigns that connect brands with their audiences. SEO, social media, email marketing, and paid advertising crafted for results.</p>
                 </div>
             </div>
         </section>
 
-        <section id="technology">
-            <h2>Technology Stack</h2>
-            <p>We leverage cutting-edge technologies to deliver robust solutions:</p>
-            <ul style="margin: 1rem 0; padding-left: 2rem;">
-                <li>WhatsApp Business Cloud API</li>
-                <li>Python, Node.js for backend development</li>
-                <li>PostgreSQL for data management</li>
-                <li>AI/ML for natural language processing</li>
-                <li>RESTful APIs for system integration</li>
-                <li>Cloud infrastructure for scalability</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <p><strong>Company:</strong> CLIXHOUSE LLC</p>
-                <p><strong>Email:</strong> <a href="mailto:michael@clixhouse.com">michael@clixhouse.com</a></p>
-                <p><strong>Business Type:</strong> Limited Liability Company (LLC)</p>
-                <p><strong>Founded:</strong> 2025</p>
-                <p><strong>Location:</strong> United States</p>
-                <p><strong>Registration:</strong> Wyoming, USA</p>
+        <section id="process">
+            <h2>Our Process</h2>
+            <div class="process">
+                <div class="process-step">
+                    <div class="number">1</div>
+                    <h3>Discover</h3>
+                    <p>We begin with deep listening, understanding your vision, challenges, and aspirations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">2</div>
+                    <h3>Design</h3>
+                    <p>Conceptualization and creative exploration, where ideas take shape and possibilities emerge.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">3</div>
+                    <h3>Develop</h3>
+                    <p>Meticulous craftsmanship in execution, bringing concepts to life with technical excellence.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">4</div>
+                    <h3>Deliver</h3>
+                    <p>Launch, optimization, and ongoing support to ensure lasting success and growth.</p>
+                </div>
             </div>
-        </section>
-
-        <section id="compliance">
-            <h2>Compliance & Privacy</h2>
-            <p>CLIXHOUSE LLC is committed to:</p>
-            <ul style="margin: 1rem 0; padding-left: 2rem;">
-                <li>Full compliance with WhatsApp Business Policy</li>
-                <li>GDPR and data protection regulations</li>
-                <li>Secure handling of customer data</li>
-                <li>Transparent business practices</li>
-                <li>Ethical use of automation technology</li>
-            </ul>
         </section>
     </div>
 
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Create Together</h2>
+                <p style="margin: 2rem 0;">Ready to transform your digital presence? We'd love to hear about your project.</p>
+                <p><a href="mailto:michael@clixhouse.com">michael@clixhouse.com</a></p>
+                <p style="margin-top: 2rem; font-size: 0.9rem;">Based in California • Serving clients globally</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 CLIXHOUSE LLC. All rights reserved.</p>
-        <p>A Wyoming Limited Liability Company</p>
+        <p>&copy; 2025 CLIXHOUSE LLC. A Digital Atelier.</p>
+        <p>Registered in Wyoming, United States</p>
     </footer>
 </body>
 </html>
