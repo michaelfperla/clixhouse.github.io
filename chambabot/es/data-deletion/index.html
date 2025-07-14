@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminación de Datos - Chambabot | CLIXHOUSE</title>
+    <meta name="description" content="Aprende cómo eliminar tus datos de Chambabot. Respetamos tu derecho al olvido.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #666;
+        }
+        
+        /* Header */
+        .header {
+            margin-top: 80px;
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+        
+        /* Content */
+        .content {
+            padding: 4rem 0;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        h2:first-child {
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .highlight {
+            background-color: #f8f8f8;
+            padding: 1.5rem;
+            border-left: 3px solid #25D366;
+            margin: 2rem 0;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .method-box {
+            background-color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .method-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .code-block {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 2rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+        
+        .lang-switch a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        
+        .lang-switch a.active {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .contact-help {
+            background-color: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-help h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <a href="chambabot-data-deletion.html">EN</a>
+        <a href="chambabot-data-deletion-es.html" class="active">ES</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" style="font-size: 1.5rem; font-weight: 400;">CLIXHOUSE</a>
+            <a href="/chambabot-es.html">← Regresar a Chambabot</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <h1>Eliminación de Datos</h1>
+            <p class="tagline">Tus datos, tu control. Elimina tu información cuando quieras.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+        <div class="container">
+            <h2>Tu Derecho a Eliminar</h2>
+            <p>En CLIXHOUSE respetamos tu privacidad y propiedad de datos. Puedes solicitar la eliminación completa de tus datos de Chambabot en cualquier momento. Este proceso es:</p>
+            <ul>
+                <li><strong>Completo:</strong> Todos tus datos serán eliminados permanentemente</li>
+                <li><strong>Irreversible:</strong> Los datos eliminados no pueden recuperarse</li>
+                <li><strong>Rápido:</strong> Procesado en 24-48 horas</li>
+            </ul>
+
+            <div class="warning">
+                <strong>⚠️ Importante:</strong> La eliminación de datos es permanente. Una vez eliminados, no podemos recuperar tus registros comerciales, historial o información de suscripción. Por favor exporta tus datos antes de solicitar la eliminación si quieres conservar una copia.
+            </div>
+
+            <h2>Cómo Eliminar tus Datos</h2>
+            
+            <div class="method-box">
+                <h3>Método 1: Por WhatsApp (Recomendado)</h3>
+                <ol>
+                    <li>Envía un mensaje a Chambabot diciendo: <strong>"Eliminar mi cuenta"</strong></li>
+                    <li>Chambabot te pedirá confirmación y ofrecerá exportar tus datos primero</li>
+                    <li>Confirma escribiendo: <strong>"CONFIRMAR ELIMINAR"</strong></li>
+                    <li>Tus datos serán eliminados en 24 horas</li>
+                </ol>
+                <div class="code-block">
+Tú: Eliminar mi cuenta
+Chambi: ⚠️ Esto eliminará permanentemente todos tus datos. 
+        ¿Quieres exportar tus datos primero? Escribe /exportar
+        Para confirmar la eliminación, escribe: CONFIRMAR ELIMINAR
+Tú: CONFIRMAR ELIMINAR
+Chambi: ✅ Tu solicitud de eliminación ha sido procesada.</div>
+            </div>
+
+            <div class="method-box">
+                <h3>Método 2: Por Email</h3>
+                <p>Envía un correo a <strong>privacy@clixhouse.com</strong> con:</p>
+                <ul>
+                    <li>Asunto: "Solicitud de Eliminación de Datos - Chambabot"</li>
+                    <li>Tu número de WhatsApp registrado</li>
+                    <li>Una breve declaración solicitando la eliminación de datos</li>
+                </ul>
+                <p>Confirmaremos tu solicitud en 48 horas.</p>
+            </div>
+
+            <h2>Qué se Elimina</h2>
+            <p>Cuando solicitas la eliminación de datos, eliminamos:</p>
+            <ul>
+                <li>✓ Todos tus mensajes y registros comerciales</li>
+                <li>✓ Transcripciones de mensajes de voz</li>
+                <li>✓ Información de cuenta y preferencias</li>
+                <li>✓ Estadísticas de uso y análisis</li>
+                <li>✓ Datos de facturación y suscripción de nuestros sistemas</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Nota:</strong> Los registros de pago con Stripe se retienen según lo requieren las regulaciones financieras, pero se desvinculan de tu cuenta de Chambabot.
+            </div>
+
+            <h2>Después de la Eliminación</h2>
+            <p>Una vez que tus datos son eliminados:</p>
+            <ul>
+                <li>Recibirás un mensaje de confirmación</li>
+                <li>Tu número de teléfono es removido de nuestros sistemas</li>
+                <li>Puedes empezar de nuevo cuando quieras enviando un nuevo mensaje a Chambabot</li>
+                <li>No se retendrá ni será accesible ningún dato de tu uso anterior</li>
+            </ul>
+
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <h3>¿Puedo exportar mis datos antes de eliminarlos?</h3>
+                <p>¡Sí! Recomendamos encarecidamente exportar tus datos primero. Solo escribe <strong>/exportar</strong> en WhatsApp para obtener un enlace de descarga con todos tus datos.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Cuánto tiempo toma la eliminación?</h3>
+                <p>Procesamos las solicitudes de eliminación en 24-48 horas. Recibirás confirmación cuando esté completo.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Puedo recuperar datos eliminados?</h3>
+                <p>No. La eliminación es permanente e irreversible. No podemos recuperar datos una vez que han sido eliminados.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>¿Qué pasa si tengo una suscripción activa?</h3>
+                <p>Tu suscripción será cancelada y no habrá cargos futuros. No se proporcionan reembolsos por períodos parciales.</p>
+            </div>
+
+            <div class="contact-help">
+                <h3>¿Necesitas Ayuda?</h3>
+                <p>Si tienes preguntas sobre la eliminación de datos o privacidad, contáctanos:</p>
+                <p><strong>privacy@clixhouse.com</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Chambabot es un producto de <a href="/">CLIXHOUSE</a></p>
+            <p style="margin-top: 1rem;">Respetamos tu privacidad y derechos sobre tus datos</p>
+        </div>
+    </footer>
+</body>
+</html>

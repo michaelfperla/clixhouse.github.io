@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chambabot - AI Business Assistant for WhatsApp | CLIXHOUSE</title>
+    <meta name="description" content="Chambabot by CLIXHOUSE - Your AI-powered business assistant on WhatsApp. Record sales, track expenses, and get insights naturally through voice or text.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation - matches your site */
+        nav {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #666;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            text-align: center;
+        }
+        
+        .chambi-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-description {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background-color: #ffffff;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #1a1a1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background-color: #f8f8f8;
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 0;
+            background-color: #f8f8f8;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 0;
+            background-color: #ffffff;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background-color: #f8f8f8;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            background-color: #1a1a1a;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .pricing-card.featured .plan-price span {
+            color: #ccc;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .pricing-card.featured .plan-features li {
+            color: #ddd;
+        }
+        
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 6rem 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        
+        .tech-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-item {
+            text-align: center;
+        }
+        
+        .tech-item img {
+            height: 60px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .tech-item p {
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #ccc;
+            font-weight: 300;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 3rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        footer a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+        
+        .lang-switch a {
+            color: #666;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        
+        .lang-switch a.active {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .lang-switch {
+                top: auto;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <a href="/chambabot/" class="active">EN</a>
+        <a href="/chambabot/es/">ES</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" style="font-size: 1.5rem; font-weight: 400;">CLIXHOUSE</a>
+            <div class="nav-links">
+                <a href="/#services">Services</a>
+                <a href="/#process">Process</a>
+                <a href="/#contact">Contact</a>
+                <a href="/chambabot/" style="color: #25D366;">Chambabot</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="chambi-profile.jpg" alt="Chambi - Your AI Business Assistant" class="chambi-image">
+            <h1>Chambabot</h1>
+            <p class="tagline">AI Business Assistant for WhatsApp</p>
+            <p class="hero-description">
+                Record sales, track expenses, and get intelligent insights about your business. 
+                All through simple voice or text messages on WhatsApp.
+            </p>
+            <a href="https://wa.me/1234567890?text=Hello" class="cta-button">
+                Start Free on WhatsApp →
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features, Simple Interface</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Voice First</h3>
+                    <p>Just speak naturally. Chambi transcribes and understands your business updates in any language.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Intelligence</h3>
+                    <p>Advanced AI understands context, tracks patterns, and provides insights when you need them.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Ask questions naturally: "How much did I sell today?" Get instant, accurate answers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Data Export</h3>
+                    <p>Download all your data anytime. Your business records belong to you, always.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Bank-level encryption. Your business data is protected and never shared.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Always Available</h3>
+                    <p>24/7 availability. Record a sale at 3 AM or get reports on Sunday. Chambi is always there.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Add Chambi</h3>
+                    <p>Save Chambi's number and send your first message on WhatsApp</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Record Naturally</h3>
+                    <p>Send voice notes or texts about your sales, expenses, or notes</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Ask Questions</h3>
+                    <p>Get insights anytime: daily summaries, trends, or specific queries</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Grow Your Business</h3>
+                    <p>Make better decisions with data-driven insights at your fingertips</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Free</h3>
+                    <div class="plan-price">$0<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>50 voice messages/month</li>
+                        <li>Unlimited text messages</li>
+                        <li>3-day history</li>
+                        <li>20 analytical questions</li>
+                        <li>Daily summaries</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">Essential</h3>
+                    <div class="plan-price">$5<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>300 voice messages/month</li>
+                        <li>Unlimited text messages</li>
+                        <li>30-day history</li>
+                        <li>Unlimited questions</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price">$15<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Unlimited voice messages</li>
+                        <li>Unlimited text messages</li>
+                        <li>6-month history</li>
+                        <li>Advanced analytics</li>
+                        <li>Data exports</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="plan-name">Premium</h3>
+                    <div class="plan-price">$25<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Everything in Professional</li>
+                        <li>12-month history</li>
+                        <li>Team support (3 users)</li>
+                        <li>API access</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title">Built with Modern Technology</h2>
+            <p style="color: #666; font-size: 1.2rem; margin-bottom: 3rem;">
+                Showcasing CLIXHOUSE's expertise in AI and cloud architecture
+            </p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">🐍</div>
+                    <p>Python + FastAPI</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">🤖</div>
+                    <p>Mistral AI</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">🎙️</div>
+                    <p>11Labs Voice</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">☁️</div>
+                    <p>AWS Cloud</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">🐘</div>
+                    <p>PostgreSQL</p>
+                </div>
+                <div class="tech-item">
+                    <div style="font-size: 3rem;">💳</div>
+                    <p>Stripe Payments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join thousands of business owners who are already using Chambi</p>
+            <a href="https://wa.me/1234567890?text=Hello" class="cta-button">
+                Start Your Free Trial →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Chambabot is a product by <a href="/">CLIXHOUSE</a></p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <a href="/chambabot/privacy/">Privacy Policy</a> · 
+                <a href="/chambabot/terms/">Terms of Service</a> · 
+                <a href="/chambabot/data-deletion/">Data Deletion</a>
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.8rem;">© 2024 CLIXHOUSE. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

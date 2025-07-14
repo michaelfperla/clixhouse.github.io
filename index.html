@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIXHOUSE - Digital Atelier</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+        .tagline {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        nav {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        nav a {
+            margin: 0 2rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        section {
+            margin: 6rem 0;
+        }
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        .service {
+            padding: 3rem;
+            background: #f8f8f8;
+            transition: transform 0.3s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        .service p {
+            color: #666;
+            line-height: 1.8;
+        }
+        .philosophy {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #444;
+        }
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+        .process-step .number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .contact {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 0;
+            margin-top: 6rem;
+        }
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contact h2 {
+            color: white;
+        }
+        .contact a {
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            background: #f8f8f8;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            nav a { margin: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CLIXHOUSE</h1>
+            <p class="tagline">Digital Atelier</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="philosophy">
+            <h2>Digital Craftsmanship</h2>
+            <div class="philosophy">
+                <p>CLIXHOUSE is a digital atelier where technology meets artistry. We craft bespoke digital solutions that elevate businesses in the modern landscape. From brand identity to intelligent automation, we approach each project as a unique canvas, blending creativity with cutting-edge technology.</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Brand Identity & Design</h3>
+                    <p>Complete visual identity systems including logos, typography, color palettes, and brand guidelines. We create cohesive visual languages that resonate with your audience.</p>
+                </div>
+                <div class="service">
+                    <h3>Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies. From minimalist portfolios to complex e-commerce platforms, we code with precision and purpose.</p>
+                </div>
+                <div class="service">
+                    <h3>Digital Strategy</h3>
+                    <p>Comprehensive digital transformation consulting. We analyze, strategize, and implement solutions that align technology with business objectives.</p>
+                </div>
+                <div class="service">
+                    <h3>Automation & AI</h3>
+                    <p>Intelligent business automation including chatbots, workflow optimization, and AI-powered tools. We make businesses more efficient through smart technology.</p>
+                </div>
+                <div class="service">
+                    <h3>Content Creation</h3>
+                    <p>Strategic content development from copywriting to video production. We tell your story across all digital channels with authenticity and impact.</p>
+                </div>
+                <div class="service">
+                    <h3>Digital Marketing</h3>
+                    <p>Data-driven marketing campaigns that connect brands with their audiences. SEO, social media, email marketing, and paid advertising crafted for results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Chambabot</h3>
+                    <p>AI-powered WhatsApp business assistant that helps entrepreneurs track sales, manage expenses, and gain insights through natural conversation. Built with advanced voice recognition and intelligent analytics.</p>
+                    <p style="margin-top: 1rem;"><a href="/chambabot" style="color: #25D366; font-weight: 500;">View Project →</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <h2>Our Process</h2>
+            <div class="process">
+                <div class="process-step">
+                    <div class="number">1</div>
+                    <h3>Discover</h3>
+                    <p>We begin with deep listening, understanding your vision, challenges, and aspirations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">2</div>
+                    <h3>Design</h3>
+                    <p>Conceptualization and creative exploration, where ideas take shape and possibilities emerge.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">3</div>
+                    <h3>Develop</h3>
+                    <p>Meticulous craftsmanship in execution, bringing concepts to life with technical excellence.</p>
+                </div>
+                <div class="process-step">
+                    <div class="number">4</div>
+                    <h3>Deliver</h3>
+                    <p>Launch, optimization, and ongoing support to ensure lasting success and growth.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Create Together</h2>
+                <p style="margin: 2rem 0;">Ready to transform your digital presence? We'd love to hear about your project.</p>
+                <p><a href="mailto:michael@clixhouse.com">michael@clixhouse.com</a></p>
+                <p style="margin-top: 2rem; font-size: 0.9rem;">Based in California • Serving clients globally</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 CLIXHOUSE LLC. A Digital Atelier.</p>
+        <p>Registered in Wyoming, United States</p>
+    </footer>
+</body>
+</html>
