@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANTAGE // ENTERPRISE SOLUTIONS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --primary: #3b82f6;
+            --text: #f1f5f9;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.hero-text {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .dashboard-preview {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .sidebar-item {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        .main-content {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .chart-bar {
+            height: 100%;
+            background: var(--primary);
+            opacity: 0.5;
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        /* Features */
+        .features {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #cbd5e1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background: #475569;
+            border-radius: 50%;
+        }
+
+        .author-info h4 {
+            font-size: 0.9rem;
+        }
+
+        .author-info span {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .price-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card.featured {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: var(--primary);
+        }
+
+        .price-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .price-card.featured .price-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .price-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 6rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: #94a3b8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            padding: 4rem 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .back-link {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #94a3b8;
+            border-bottom: 1px solid #94a3b8;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">VANTAGE</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#" class="btn">Get Started</a>
+        </nav>
+
+        <section class="hero">
+            <h1>Scale Your Infrastructure<br>Without The Complexity</h1>
+            <p class="hero-text">The all-in-one platform for modern engineering teams. Deploy, monitor, and scale in
+                seconds.</p>
+            <a href="#" class="btn" style="padding: 1rem 2rem; font-size: 1.1rem;">Start Free Trial</a>
+
+            <div class="dashboard-preview">
+                <div class="sidebar">
+                    <div class="sidebar-item"></div>
+                    <div class="sidebar-item"></div>
+                    <div class="sidebar-item"></div>
+                    <div class="sidebar-item"></div>
+                </div>
+                <div class="main-content">
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 4px; padding: 1rem;">
+                        <div class="chart-bar" style="width: 80%"></div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.05); border-radius: 4px; padding: 1rem;">
+                        <div class="chart-bar" style="width: 60%; background: #10b981;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="section-header">
+                <h2>Built for Scale</h2>
+                <p>Everything you need to manage your applications.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Deployments</h3>
+                    <p>Push to git and we handle the rest. Your app is live in seconds, globally distributed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Enterprise Security</h3>
+                    <p>DDoS protection, SSL encryption, and SOC2 compliance out of the box.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Monitor traffic, performance, and errors with our built-in dashboard.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trusted by Developers</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Vantage has completely transformed how we ship code. It's like
+                            having a dedicated DevOps team."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Sarah Jenkins</h4>
+                                <span>CTO at TechFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The best developer experience I've ever had. Simple, fast, and
+                            reliable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h4>Mike Ross</h4>
+                                <span>Lead Engineer at StartUp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing">
+            <div class="section-header">
+                <h2>Simple Pricing</h2>
+                <p>Start free, upgrade as you grow.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <div class="price">$0</div>
+                    <p>For hobbyists</p>
+                    <ul class="price-features">
+                        <li>1 Project</li>
+                        <li>Community Support</li>
+                        <li>1GB Storage</li>
+                    </ul>
+                    <button class="price-btn">Start Free</button>
+                </div>
+                <div class="price-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">$29</div>
+                    <p>For growing teams</p>
+                    <ul class="price-features">
+                        <li>Unlimited Projects</li>
+                        <li>Priority Support</li>
+                        <li>100GB Storage</li>
+                        <li>Analytics</li>
+                    </ul>
+                    <button class="price-btn">Get Pro</button>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>For large scale</p>
+                    <ul class="price-features">
+                        <li>Dedicated Infrastructure</li>
+                        <li>24/7 SLA</li>
+                        <li>Unlimited Storage</li>
+                        <li>Custom Contracts</li>
+                    </ul>
+                    <button class="price-btn">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How does the free trial work? <span>+</span></div>
+                <div class="faq-answer">You get 14 days of full access to the Pro plan. No credit card required.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Can I change plans anytime? <span>+</span></div>
+                <div class="faq-answer">Yes, you can upgrade or downgrade your plan at any time from your dashboard.
+                </div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Do you offer custom domains? <span>+</span></div>
+                <div class="faq-answer">Yes, all plans include custom domain support with automatic SSL.</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">VANTAGE</div>
+                    <p>Empowering developers to build the future.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center;">
+                &copy; 2025 Vantage Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <a href="../index.html" class="back-link">Back to Clixhouse</a>
+
+    <script>
+        // Simple animation trigger
+        setTimeout(() => {
+            document.querySelectorAll('.chart-bar').forEach(bar => {
+                bar.style.width = bar.style.width;
+            });
+        }, 500);
+
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const span = element.querySelector('.faq-question span');
+            span.textContent = element.classList.contains('active') ? '-' : '+';
+        }
+    </script>
+</body>
+
+</html>

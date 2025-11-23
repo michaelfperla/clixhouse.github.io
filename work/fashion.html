@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAISON NOIR // COLLECTION 01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f8f8;
+            --text: #1a1a1a;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            mix-blend-mode: difference;
+            color: #fff;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        section {
+            padding: 8rem 2rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 15vw;
+            line-height: 0.8;
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 1.5s ease forwards;
+        }
+
+        .hero p {
+            position: absolute;
+            bottom: 4rem;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .concept {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .concept h2 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .concept p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Gallery / Lookbook */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 0 4rem;
+        }
+
+        .img-container {
+            height: 80vh;
+            background: #ccc;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .img-container:hover .img-overlay {
+            opacity: 1;
+        }
+
+        .img-container:nth-child(even) {
+            margin-top: 10rem;
+        }
+
+        /* Shop Section */
+        .shop-section {
+            padding: 8rem 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            cursor: pointer;
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #e0e0e0;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Journal */
+        .journal-section {
+            background: #fff;
+            padding: 8rem 4rem;
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .journal-item h3 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin: 1.5rem 0;
+            line-height: 1.2;
+        }
+
+        .read-more {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 6rem 4rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .footer-col h4 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            text-align: center;
+        }
+
+        .close-modal {
+            margin-top: 2rem;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-link {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text);
+            border-bottom: 1px solid var(--text);
+            z-index: 100;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Maison Noir</div>
+        <div class="nav-links">
+            <span>Collections</span>
+            <span>Atelier</span>
+            <span>Journal</span>
+            <span>Cart (0)</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Silence<br><i>&</i> Noise</h1>
+        <p>Collection 2025</p>
+    </section>
+
+    <section class="concept">
+        <h2>The Concept</h2>
+        <p>Exploring the duality of modern existence. Where structure meets chaos, and silence speaks louder than noise.
+            A collection defined by absence, not presence. We strip away the unnecessary to reveal the essential form.</p>
+    </section>
+
+    <div class="gallery">
+        <div class="img-container" onclick="openModal('Look 01')">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1000&auto=format&fit=crop"
+                alt="Fashion 1">
+            <div class="img-overlay">
+                <h3>Look 01</h3>
+                <p>Silk / Void</p>
+            </div>
+        </div>
+        <div class="img-container" onclick="openModal('Look 02')">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop"
+                alt="Fashion 2">
+            <div class="img-overlay">
+                <h3>Look 02</h3>
+                <p>Wool / Structure</p>
+            </div>
+        </div>
+        <div class="img-container" onclick="openModal('Look 03')">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop"
+                alt="Fashion 3">
+            <div class="img-overlay">
+                <h3>Look 03</h3>
+                <p>Leather / Edge</p>
+            </div>
+        </div>
+        <div class="img-container" onclick="openModal('Look 04')">
+            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=1000&auto=format&fit=crop"
+                alt="Fashion 4">
+            <div class="img-overlay">
+                <h3>Look 04</h3>
+                <p>Cotton / Flow</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="shop-section">
+        <h2 class="section-title">Selected Pieces</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>The Oversized Coat</h3>
+                    <div class="product-price">$890</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1000&auto=format&fit=crop" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>Pleated Trousers</h3>
+                    <div class="product-price">$450</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=80&w=1000&auto=format&fit=crop" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>Silk Blouse</h3>
+                    <div class="product-price">$320</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1550614000-4b9519e02a48?q=80&w=1000&auto=format&fit=crop" alt="Product">
+                </div>
+                <div class="product-info">
+                    <h3>Structured Blazer</h3>
+                    <div class="product-price">$750</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journal-section">
+        <h2 class="section-title">The Journal</h2>
+        <div class="journal-grid">
+            <div class="journal-item">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1000&auto=format&fit=crop" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 1rem;" alt="Journal">
+                <span>OCT 12, 2025</span>
+                <h3>Behind the Scenes: The Making of Collection 01</h3>
+                <a href="#" class="read-more">Read Story</a>
+            </div>
+            <div class="journal-item">
+                <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1000&auto=format&fit=crop" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 1rem;" alt="Journal">
+                <span>SEP 28, 2025</span>
+                <h3>Sustainability in Modern Luxury</h3>
+                <a href="#" class="read-more">Read Story</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-brand">
+            <h2>Maison Noir</h2>
+            <p style="color: #888; font-size: 0.9rem; line-height: 1.6;">
+                Redefining luxury through minimalism and structure.<br>
+                Designed in Paris, Crafted in Italy.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Shop</h4>
+            <div class="footer-links">
+                <a href="#">New Arrivals</a>
+                <a href="#">Ready to Wear</a>
+                <a href="#">Accessories</a>
+                <a href="#">Sale</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Social</h4>
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="shopModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Look 01</h2>
+            <p>Currently Out of Stock</p>
+            <div class="close-modal" onclick="closeModal()">Close</div>
+        </div>
+    </div>
+
+    <a href="../index.html" class="back-link">Back to Clixhouse</a>
+
+    <script>
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('shopModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('shopModal').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
