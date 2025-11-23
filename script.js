@@ -34,32 +34,55 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Form Validation (Brutalist Style) ---
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const btn = contactForm.querySelector('.submit-btn');
             const originalText = btn.textContent;
+            const successMsg = document.querySelector('.success-msg');
 
             btn.textContent = 'TRANSMITTING...';
             btn.disabled = true;
             btn.style.background = '#333';
 
-            setTimeout(() => {
-                btn.textContent = 'SENT';
-                btn.style.background = '#00ff00'; // Success Green
-                btn.style.color = '#000';
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-                document.querySelector('.success-msg').style.display = 'block';
-                contactForm.reset();
+                if (response.ok) {
+                    btn.textContent = 'SENT';
+                    btn.style.background = '#00ff00'; // Success Green
+                    btn.style.color = '#000';
+                    successMsg.style.display = 'block';
+                    contactForm.reset();
 
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.disabled = false;
+                        btn.style.background = ''; // Reset to default accent
+                        btn.style.color = '';
+                        successMsg.style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                btn.textContent = 'ERROR';
+                btn.style.background = 'red';
+                
                 setTimeout(() => {
                     btn.textContent = originalText;
                     btn.disabled = false;
-                    btn.style.background = ''; // Reset to default accent
-                    btn.style.color = '';
-                    document.querySelector('.success-msg').style.display = 'none';
+                    btn.style.background = '';
                 }, 3000);
-            }, 1500);
+            }
         });
     }
 
